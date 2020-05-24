@@ -14,6 +14,9 @@ class TodayWeather extends React.Component {
     const fullName = getName(code)
 
     if(code === 'GB') {return 'UK'}
+    else if(code === 'US') {return 'USA'}
+    else if(code === 'KP') {return 'North Korea'}
+    else if(code === 'KR') {return 'South Korea'}
     else {return fullName}
   }
 
@@ -51,6 +54,7 @@ class TodayWeather extends React.Component {
   }
 
   render() {
+
     return (
       <div className="main" style={{visibility: this.props.city ? 'visible' : 'hidden'}}>
         <img className="icon"
@@ -70,9 +74,8 @@ class TodayWeather extends React.Component {
 
         <div className='today' style={{ visibility: this.props.city ? 'visible' : 'hidden', opacity: this.props.city ? '1' : '0'}}>
           <p>Today, {this.props.data ? this.convertDate(this.props.data.date) : ''}</p>
-          <h1>{this.props.data ? Math.round(this.props.data.temp) : 0}°C</h1>
-          <p>{this.props.data ? this.props.data.weather_desc : ''}</p>
-          <p>Max/Min</p>
+          <h1>{this.props.data ? Number(Math.round(this.props.data.temp+'e'+1)+'e-'+1) : 0}°C</h1>
+          <p className='des'>{this.props.data ? this.props.data.weather_desc : ''}</p>
           <p>{this.props.city}, {this.getCountry(this.props.country)}</p>
         </div>
       </div>
@@ -81,3 +84,6 @@ class TodayWeather extends React.Component {
 }
 
 export default TodayWeather;
+
+// max / min
+// <p>{this.props.data ? Number(Math.round(this.props.data.maxTemp+'e'+1)+'e-'+1).toString()+' / '+Number(Math.round(this.props.data.minTemp+'e'+1)+'e-'+1).toString() : ''}</p>

@@ -17,6 +17,7 @@ class WeekWeather extends React.Component {
     weekday[5] = 'Friday';
     weekday[6] = 'Saturday';
 
+    // console.log(dateISO)
     // getDay() function gives the day number of weekdays
     return weekday[new Date(dateISO).getDay()];
   };
@@ -25,16 +26,16 @@ class WeekWeather extends React.Component {
   render() {
     return (
       <div className='weather-box'>
-        <h1>{this.props.date ? this.getDayChar(this.props.date) : ''}</h1>
+        <h1>{this.props.day.date ? this.getDayChar(this.props.day.date) : ''}</h1>
         <img
           src={
-            this.props.icon
-              ? require(`../images/${this.props.icon}.svg`)
+            this.props.day.icon
+              ? require(`../images/${this.props.day.icon}.svg`)
               : require('../images/01d.svg')
           }
           alt='sun'
         />
-        <span className='temp'>{Math.round(this.props.temp)}°C</span>
+        <span className='temp'>{Number(Math.round(this.props.day.temp+'e'+1)+'e-'+1)}°C</span>
       </div>
     );
   }

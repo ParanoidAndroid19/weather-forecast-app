@@ -51,7 +51,9 @@ class App extends React.Component {
         date: dailyData[i].dt_txt,
         weather_desc: dailyData[i].weather[0].description,
         icon: dailyData[i].weather[0].icon,
-        temp: dailyData[i].main.temp
+        temp: dailyData[i].main.temp,
+        minTemp: dailyData[i].main.temp_min,
+        maxTemp: dailyData[i].main.temp_max
       })
     }
 
@@ -114,12 +116,11 @@ class App extends React.Component {
 
   render() {
     const Forecast = () => {
-      // slice(1) is equivalent to days[1:]
+      // slice(1) is equivalent to days[1:], days array consists of 5 days total
       const boxes = this.state.days.slice(1).map(day => (
         // console.log(day),
-        // ... are called Spread Attributes which allows an expression to be expanded.
         <li key={day.date}>
-          <WeekWeather {...day} />
+          <WeekWeather day={day} />
         </li>
       ));
 

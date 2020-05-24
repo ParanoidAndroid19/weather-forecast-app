@@ -28,10 +28,11 @@
 
 .today p {
   /* padding: -100px; */
-  margin: 0;
+  margin: 4px;
   position: relative;
   transition: all 0.5s ease-out;
   color: #113555;
+  font-size: 22px;
 }
 
 .today{
@@ -51,4 +52,8 @@
   margin: 1px;
   margin-bottom: 20px;
   margin-top: 20px;
+}
+
+.des:first-letter {
+    text-transform:capitalize;
 }
