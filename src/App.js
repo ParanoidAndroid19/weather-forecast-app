@@ -3,6 +3,7 @@ import './App.css';
 import CityInput from './components/CityInput';
 import TodayWeather from './components/TodayWeather';
 import WeekWeather from './components/WeekWeather';
+// import Bbackground from './images/mspace.jpg';
 
 // git project https://github.com/erikflowers/weather-icons
 import 'weather-icons/css/weather-icons.css';
@@ -127,8 +128,18 @@ class App extends React.Component {
       return <ul className='weather-box-list'>{boxes}</ul>;
     };
 
+    // ./images/mspace.jpg
+    // style={{ backgroundImage: `url(require("../images/mspace.jpg"))`}}
+    // const bg = './images/mspace.jpg'
+
+    const bgStyle = {
+      backgroundImage: this.state.city ? 'url(/mspace.jpg)' : 'url(./space.jpg)',
+      backgroundSize: 'cover',
+      transition: 'all 0.5s ease-out'
+    }
+
     return (
-      <div className="App">
+      <div className="App" style={bgStyle}>
         <header className="App-header">
           <CityInput city={this.state.city} makeApiCall={this.makeApiCall.bind(this)}/>
           <TodayWeather data={this.state.days[0]} city={this.state.city} country={this.state.country}/>

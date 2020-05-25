@@ -1,14 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: black;
+  user-select: none;
+}
+
+html, body, #root, .App {
+  min-height: 100% !important;
+  height: 100%;
+  margin: 0;
+}
+
 .App {
+  /* background-image: url('./images/mspace.jpg'); */
+  /* background-size: cover; */
   text-align: center;
+  height: 100%;
+  margin: 0;
 }
 
 
 .App-header {
+  /* background-image: url('./images/space.jpg'); */
+  /* background-repeat: no-repeat; */
+  /* background-size: auto; */
+  /* background-position: center bottom; */
   /* display: flex; */
-  margin-top: 40px;
+  /* margin-top: 40px; */
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  transition: all 0.5s ease-out;
   /* color: white; */
 }
 
