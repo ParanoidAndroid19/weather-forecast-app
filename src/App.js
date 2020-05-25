@@ -18,6 +18,7 @@ class App extends React.Component {
     this.state = {
       city: '',
       country: '',
+      // unit: 'metric'
       // days contain today and next 4 days
       // for each day there is: date, weather_desc, icon, temp
       days: new Array(5)
@@ -60,8 +61,6 @@ class App extends React.Component {
 
     // console.log(data);
     // console.log(dailyData);
-
-    console.log(data);
     // console.log(typeof(days[0].date))
 
     this.setState({
@@ -69,6 +68,8 @@ class App extends React.Component {
       country: country,
       days: days
     });
+
+    console.log(this.state.days)
   };
 
   // tries to make an API call with the given city name and triggers state update
@@ -130,12 +131,14 @@ class App extends React.Component {
 
     // ./images/mspace.jpg
     // style={{ backgroundImage: `url(require("../images/mspace.jpg"))`}}
-    // const bg = './images/mspace.jpg'
+    // this.state.days[0].icon
+
+    // const test = "50d"
 
     const bgStyle = {
-      backgroundImage: this.state.city ? 'url(/mspace.jpg)' : 'url(./space.jpg)',
+      backgroundImage: this.state.city ? `url(/backgrounds/${this.state.days[0].icon}_bg.jpg)` : `url(/backgrounds/mspace.jpg)`,
       backgroundSize: 'cover',
-      transition: 'all 0.5s ease-out'
+      transition: 'all 2s ease-out'
     }
 
     return (

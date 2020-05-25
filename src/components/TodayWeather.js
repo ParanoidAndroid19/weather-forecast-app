@@ -10,6 +10,7 @@ class TodayWeather extends React.Component {
   }
 
   getCountry = code => {
+    // country-list package used
     const { getCode, getName } = require('country-list');
     const fullName = getName(code)
 

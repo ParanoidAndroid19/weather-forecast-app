@@ -5,8 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('./images/space.jpg');
-  background-size: cover; */
+  background-image: url('/backgrounds/mspace.jpg');
+  background-size: cover;
+  transition: all 2s ease-out;
 }
 
 code {
