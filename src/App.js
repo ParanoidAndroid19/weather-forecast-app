@@ -30,7 +30,7 @@ class App extends React.Component {
 
   // creates the day objects and updates the state
   updateState = (data, uunits) => {
-    // city is from the API data
+    // city and country is from the API data, this is done to update the state in App using the data received from API called by CityInput
     const city = data.city.name;
     const country = data.city.country;
     const days = [];
@@ -141,8 +141,9 @@ class App extends React.Component {
     // style={{ backgroundImage: `url(require("../images/mspace.jpg"))`}}
     // this.state.days[0].icon
 
-    // const test = "50d"
+    // const test = "tp"
 
+    // here we change the background image based on the icons (weather condition)
     const bgStyle = {
       backgroundImage: this.state.city ? `url(/backgrounds/${this.state.days[0].icon}_bg.jpg)` : `url(/backgrounds/mspace.jpg)`,
       backgroundSize: 'cover',
