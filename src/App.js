@@ -143,9 +143,16 @@ class App extends React.Component {
 
     // const test = "tp"
 
+    var imgUrl = require('./images/mspace.jpg')
+
+    if(this.state.city){
+      imgUrl = require(`./images/${this.state.days[0].icon}_bg.jpg`)
+    }
+
     // here we change the background image based on the icons (weather condition)
     const bgStyle = {
-      backgroundImage: this.state.city ? `url(/backgrounds/${this.state.days[0].icon}_bg.jpg)` : `url(/backgrounds/mspace.jpg)`,
+      // backgroundImage: this.state.city ? `url(/backgrounds/${this.state.days[0].icon}_bg.jpg)` : `url(/backgrounds/mspace.jpg)`,
+      backgroundImage: `url(${imgUrl})`,
       backgroundSize: 'cover',
       transition: 'all 2s ease-out'
     }
