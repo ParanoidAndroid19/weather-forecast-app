@@ -75,7 +75,7 @@ class TodayWeather extends React.Component {
 
         <div className='today' style={{ visibility: this.props.city ? 'visible' : 'hidden', opacity: this.props.city ? '1' : '0'}}>
           <p>Today, {this.props.data ? this.convertDate(this.props.data.date) : ''}</p>
-          <h1>{this.props.data ? Number(Math.round(this.props.data.temp+'e'+1)+'e-'+1) : 0}°C</h1>
+          <h1>{this.props.data ? Number(Math.round(this.props.data.temp+'e'+1)+'e-'+1)+this.props.data.notation : 0}</h1>
           <p className='des'>{this.props.data ? this.props.data.weather_desc : ''}</p>
           <p>{this.props.city}, {this.getCountry(this.props.country)}</p>
         </div>

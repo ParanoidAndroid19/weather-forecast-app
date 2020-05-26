@@ -19,3 +19,10 @@
   background-position: 97% center;
   background-repeat: no-repeat;
 }
+
+.react-switch {
+  margin-top: -5px;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-right: 5px;
+}

@@ -35,7 +35,7 @@ class WeekWeather extends React.Component {
           }
           alt='sun'
         />
-        <span className='temp'>{Number(Math.round(this.props.day.temp+'e'+1)+'e-'+1)}°C</span>
+        <span className='temp'>{Number(Math.round(this.props.day.temp+'e'+1)+'e-'+1)+this.props.day.notation}</span>
       </div>
     );
   }

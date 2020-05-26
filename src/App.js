@@ -18,7 +18,7 @@ class App extends React.Component {
     this.state = {
       city: '',
       country: '',
-      // unit: 'metric'
+      units: 'metric',
       // days contain today and next 4 days
       // for each day there is: date, weather_desc, icon, temp
       days: new Array(5)
@@ -29,11 +29,12 @@ class App extends React.Component {
 
 
   // creates the day objects and updates the state
-  updateState = data => {
+  updateState = (data, uunits) => {
     // city is from the API data
     const city = data.city.name;
     const country = data.city.country;
     const days = [];
+    var nota = '°C'
     // const dayIndices = this.getDayIndices(data);
     //
     // for (let i = 0; i < 5; i++) {
@@ -45,6 +46,9 @@ class App extends React.Component {
     //   });
     // }
 
+    if(uunits === 'imperial') { nota = '°F' }
+    else { nota = '°C' }
+
     // This will give us readings for only 06:00pm UTC on each day
     const dailyData = data.list.filter(reading => reading.dt_txt.includes("18:00:00"))
 
@@ -54,38 +58,42 @@ class App extends React.Component {
         weather_desc: dailyData[i].weather[0].description,
         icon: dailyData[i].weather[0].icon,
         temp: dailyData[i].main.temp,
+        notation: nota,
         minTemp: dailyData[i].main.temp_min,
         maxTemp: dailyData[i].main.temp_max
       })
     }
 
-    // console.log(data);
+    console.log(data);
     // console.log(dailyData);
     // console.log(typeof(days[0].date))
 
     this.setState({
       city: city,
       country: country,
-      days: days
+      days: days,
+      units: uunits
     });
 
     console.log(this.state.days)
   };
 
-  // tries to make an API call with the given city name and triggers state update
-  makeApiCall = async city => {
+  // tries to make an API call with the given city name and triggers state update,
+  // here city and uunits refer to the props updated by the child component CityInput, this is case of Child component passing updated state to parent component
+  makeApiCall = async(city, uunits) => {
     // this city passed is from the user entered input
     const api_data = await fetch(
-      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=metric`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${API_KEY}&units=${uunits}`
     ).then(resp => resp.json());
 
     if (api_data.cod === '200') {
-      await this.updateState(api_data);
+      await this.updateState(api_data, uunits);
       // console.log(this.state.days)
       return true;
     } else return false;
   };
 
+  // This code is not required anymore
   // returns array with Indices of the next five days in the list
   // from the API data (every day at 12:00 pm)
   // I have no idea how the code inside this component works!
@@ -108,13 +116,13 @@ class App extends React.Component {
   //   }
   //   return dayIndices;
   // };
-
-
+  //
   // handleChange(e) {
   //   this.setState({
   //     city: e.target.value
   //   });
   // }
+
 
   render() {
     const Forecast = () => {
@@ -144,7 +152,7 @@ class App extends React.Component {
     return (
       <div className="App" style={bgStyle}>
         <header className="App-header">
-          <CityInput city={this.state.city} makeApiCall={this.makeApiCall.bind(this)}/>
+          <CityInput city={this.state.city} units={this.state.units} makeApiCall={this.makeApiCall.bind(this)}/>
           <TodayWeather data={this.state.days[0]} city={this.state.city} country={this.state.country}/>
           <Forecast />
         </header>
