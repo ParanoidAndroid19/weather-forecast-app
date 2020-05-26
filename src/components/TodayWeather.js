@@ -18,18 +18,19 @@ class TodayWeather extends React.Component {
     else if(code === 'US') {return 'USA'}
     else if(code === 'KP') {return 'North Korea'}
     else if(code === 'KR') {return 'South Korea'}
+    else if(code === 'TW') {return 'Taiwan'}
     else {return fullName}
   }
 
   getDayChar = dayNum => {
     let weekday = new Array(7);
-    weekday[0] = 'Sunday';
-    weekday[1] = 'Monday';
-    weekday[2] = 'Tuesday';
-    weekday[3] = 'Wednesday';
-    weekday[4] = 'Thursday';
-    weekday[5] = 'Friday';
-    weekday[6] = 'Saturday';
+    weekday[0] = 'Sun';
+    weekday[1] = 'Mon';
+    weekday[2] = 'Tue';
+    weekday[3] = 'Wed';
+    weekday[4] = 'Thu';
+    weekday[5] = 'Fri';
+    weekday[6] = 'Sat';
 
     return weekday[dayNum];
   };
