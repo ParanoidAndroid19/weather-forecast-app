@@ -5,4 +5,4 @@ Built using React JS. The API used is OpenWeatherMap's [5 day weather forecast A
 - [Country list](https://www.npmjs.com/package/country-list)
 - [react-switch](https://www.npmjs.com/package/react-switch)
 
-<img src="https://user-images.githubusercontent.com/30766392/83004978-e5f17300-a02d-11ea-90c9-42170582ee4e.gif">
+<img src="https://user-images.githubusercontent.com/30766392/83004978-e5f17300-a02d-11ea-90c9-42170582ee4e.gif" width="100%">
