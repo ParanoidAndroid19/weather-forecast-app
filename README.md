@@ -1,5 +1,5 @@
 # Weather Forecast App
-Built using React JS. The API used is OpenWeatherMap's [5 day weather forecast API](https://openweathermap.org/forecast5). Deployed using Github Pages [here](https://paranoidandroid19.github.io/weather-forecast-app/)
+Built using React JS. The API used is OpenWeatherMap's [5 day weather forecast API](https://openweathermap.org/forecast5). Deployed using Github Pages https://paranoidandroid19.github.io/weather-forecast-app/
 
 ### NPM packages used
 - [Country list](https://www.npmjs.com/package/country-list)
